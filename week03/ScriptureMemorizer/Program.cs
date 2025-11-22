@@ -3,23 +3,24 @@ class Program
     static void Main(string[] args)
     {
         // Create scripture
-        Reference reference = new Reference("John", 3, 16);
-        Scripture scripture = new Scripture(reference, 
-            "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
+        Reference reference = new Reference("Matthew", 6, 9, 13);
+        Scripture scripture = new Scripture(reference,
+            "Our Father in heaven, hallowed be your name. Your kingdom come, your will be done, on earth as it is in heaven.");
 
         while (true)
+
         {
             Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());
             Console.WriteLine("\nPress Enter to continue or type 'quit' to finish:");
-            
+
             string input = Console.ReadLine();
             if (input.ToLower() == "quit" || scripture.IsCompletelyHidden())
                 break;
 
             scripture.HideRandomWords(3);
         }
-        
+
         Console.WriteLine("Program ended. Great job memorizing!");
     }
 }
